@@ -2,6 +2,7 @@
 用于模式识别与机器学习课程
 
 搭建anaconda的环境
+
 conda create -n PRML-test python=3.7
 
 conda activate PRML-test
@@ -26,10 +27,10 @@ https://blog.csdn.net/hhaowang/article/details/112175867
 目录
 面向初学者的机器学习项目
 1.鸢尾花分类项目
-2. Emojify –使用Python创建自己的表情符号
+2.Emojify –使用Python创建自己的表情符号
 3.使用机器学习进行贷款预测
 4.住房价格预测项目
-5. MNIST数字分类机器学习项目
+5.MNIST数字分类机器学习项目
 6.使用机器学习预测股价
 7.泰坦尼克号生存计划
 8.葡萄酒质量检测项目
@@ -53,5 +54,8 @@ https://blog.csdn.net/hhaowang/article/details/112175867
 5.使用协同过滤的在线杂货推荐
 6.使用机器学习的电影推荐系统
 7.车牌自动识别系统
+
+
+
 
 
