@@ -17,6 +17,8 @@ conda install notebook
 
 conda install pandas
 
+conda install -c anaconda nltk
+
 test1的来源
 https://www.icourse163.org/learn/HIT-1206320802?tid=1474160480#/learn/content?type=detail&id=1262130582&cid=1299591672
 使用sklearn进行精确率-召回率曲线的绘制
