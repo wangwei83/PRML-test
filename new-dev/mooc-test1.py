@@ -8,7 +8,7 @@ from sklearn.metrics import average_precision_score
 from sklearn.preprocessing import label_binarize
 from sklearn.multiclass import OneVsRestClassifier
 
-from sklearn.model_selection import train_test_split #适用于anaconda 3.7
+from sklearn.model_selection import train_test_split 
 
 iris = datasets.load_iris()
 X = iris.data

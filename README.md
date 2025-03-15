@@ -3,7 +3,7 @@
 
 搭建anaconda的环境
 
-conda create -n PRML-test python=3.7
+conda create -n PRML-test python
 
 conda activate PRML-test
 
