@@ -207,7 +207,8 @@ plot_results(data, labels, mu_true, sigma_true, gmm.mu, gmm.sigma)
 
 
 # 读取iris.csv数据集，只取前四列作为特征，最后一列作为类别标签
-df = pd.read_csv('iris.csv', header=None) # 读取文件，没有表头
+# df = pd.read_csv('iris.csv', header=None) # 读取文件，没有表头
+df = pd.read_csv('C:\\Users\\19002\\Desktop\\PRML-test\\lab\\lab3\\iris.csv', header=None) # 读取文件，没有表头
 X = df.iloc[:, :4].values # 取前四列作为特征矩阵
 y = df.iloc[:, 4].values # 取最后一列作为类别向量
 
