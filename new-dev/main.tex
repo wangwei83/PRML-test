@@ -1,0 +1,92 @@
+\documentclass[lettersize,journal]{IEEEtran}
+\usepackage{amsmath,amsfonts}
+\usepackage{algorithmic}
+\usepackage{algorithm}
+\usepackage{array}
+\usepackage[caption=false,font=normalsize,labelfont=sf,textfont=sf]{subfig}
+\usepackage{textcomp}
+\usepackage{stfloats}
+\usepackage{url}
+\usepackage{verbatim}
+\usepackage{graphicx}
+\usepackage{cite}
+\hyphenation{op-tical net-works semi-conduc-tor IEEE-Xplore}
+
+\begin{document}
+
+% 《基于深度学习和机器视觉的工业目标计数技术综述》
+\title{A Survey on Industrial Object Counting Techniques Based on Deep Learning and Machine Vision}
+
+\author{
+%Wei~Wang~\IEEEmembership{}
+}
+
+
+\markboth{Journal of \LaTeX\ Class Files,~Vol.~14, No.~8, August~2021}%
+{Shell \MakeLowercase{\textit{et al.}}: A Sample Article Using IEEEtran.cls for IEEE Journals}
+
+
+
+\maketitle
+
+% 摘要：随着工业自动化和智能制造的快速发展，基于深度学习和机器视觉的工业目标计数技术已成为提升生产效率和质量控制的关键手段。本文综述了近年来该领域的研究进展，重点探讨了传统机器视觉方法、深度学习方法以及两者的融合技术在工业目标计数中的应用。首先，传统机器视觉方法依赖于手工特征提取和经典图像处理算法，虽然计算效率高，但在复杂场景下的鲁棒性较差。近年来，深度学习技术的引入为工业目标计数带来了突破性进展。卷积神经网络（CNN）和目标检测模型（如 YOLO、Faster R-CNN）在处理遮挡、重叠和多尺度目标计数方面表现出色。此外，多模态数据融合和迁移学习技术进一步提升了模型的泛化能力和适应性。本文还分析了当前技术面临的挑战，如数据标注成本高、模型泛化能力不足以及实时性要求等问题，并对未来发展方向进行了展望，包括轻量化模型设计、无监督学习和多任务学习等。通过系统总结现有方法的优势与不足，本文旨在为研究人员和工程师提供有价值的参考，推动工业目标计数技术的进一步发展。
+
+\begin{abstract}
+With the rapid development of industrial automation and intelligent manufacturing,industrial object counting techniques based on deep learning and machine vision have become a key means to improve production efficiency and quality control.This paper reviews research progress in this field in recent years,focusing on the application of traditional machine vision methods,deep learning methods,and their integration in industrial object counting. First,traditional machine vision methods rely on manual feature extraction and classical image processing algorithms,which,although computationally efficient,lack robustness in complex scenarios. In recent years, the introduction of deep learning technology has brought breakthroughs to industrial object counting. Convolutional neural networks (CNNs)and object detection models(such as YOLO and Faster R-CNN)have shown excellent performance in handling occlusion,overlap,and multiscale object counting. In addition,the fusion of multimodal data and transfer learning techniques has further enhanced the generalization and adaptability of the models. This article also analyzes the challenges faced by current technologies,such as high data annotation costs,insufficient model generalization,and real-time requirements,and looks forward to future development directions,including lightweight model design,unsupervised learning,and multi-task learning.By systematically summarizing the strengths and weaknesses of existing methods, this article aims to provide valuable references for researchers and engineers,promoting further development in industrial object counting technology.
+\end{abstract}
+
+\begin{IEEEkeywords}
+Industrial Object Counting, Deep Learning, Machine Vision, Convolutional Neural Networks, CNN Object Detection Models, Multi-modal Data Fusion, Transfer Learning
+\end{IEEEkeywords}
+
+\section{Introduction}
+%引言 第一段 目标检测是计算机视觉的一个重要任务，它涉及在数字图像中检测特定类别（如人类、动物或汽车）的视觉对象实例。目标检测的目标是开发计算模型和技术，以提供计算机视觉应用所需的基本知识之一：物体在哪里？两类最重要的目标检测指标是精度（包括分类精度和定位精度）和速度。
+
+~\textbf{Object detection}~\cite{Zou2023-bt} is an important task in computer vision that involves detecting instances of visual objects of specific categories(such as humans,animals,or cars)in digital images.The goal of object detection is to develop computational models and techniques to provide one of the fundamental pieces of knowledge required by computer vision applications: Where are the objects?The two most important metrics for object detection are accuracy(including classification accuracy and localization accuracy)and speed. 
+
+
+
+\begin{figure}[htbp]  
+    \centering
+    \includegraphics[width=0.5\textwidth]{fig/object-detection-milestones-2001-2023.jpg}  
+    \caption{Object Detection Milestones.}  
+    \label{fig:Milestones}  
+\end{figure}
+
+\begin{figure}[htbp]  
+    \centering
+    \includegraphics[width=0.5\textwidth]{fig/object-detection-xmind.jpeg}  
+    \caption{Object Detection xmind.}  
+    \label{fig:xmind}  
+\end{figure}
+
+% 引言 第二段 上图来自文献ob-23,主要描述了2001-2023年从传统识别方法到深度学习方法的物体和目标识别发展过程中的里程碑模型。图2，通过xmind方式展示了目标检测问题的各个方面。目标检测是计算机视觉中的关键任务，旨在从图像或视频中识别并定位目标物体。它包括传统方法（如基于手工特征的检测）和深度学习方法（如两阶段检测器和单阶段检测器）。目标检测涉及输入数据处理、目标定位与分类、数据增强和损失函数设计等关键技术，同时面临小目标检测、遮挡、类别不平衡和实时性等挑战。其性能通过准确率、召回率、mAP和速度指标进行评估。常用数据集包括PASCAL VOC、COCO等，应用场景涵盖自动驾驶、安防监控和医疗影像等。未来，目标检测将朝着3D检测、弱监督学习和跨模态检测等方向发展。
+As shown in Figure~\ref{fig:Milestones}, the figure is from reference ~\cite{Zou2023-bt} and mainly describes the milestone models in the development of object and target recognition from traditional methods to deep learning methods between 2001 and 2023. Figure~\ref{fig:xmind}, presented in XMind format,illustrates various aspects of the object detection problem.Object detection is a crucial task in computer vision,aiming to identify and localize target objects within images or videos.It encompasses both traditional methods(such as detection based on handcrafted features)and deep learning methods(such as two-stage detectors and one-stage detectors).Object detection involves key technologies like input data processing,object localization and classification,data augmentation,and loss function design,while also facing challenges such as small object detection,occlusion,class imbalance,and real-time performance.Its performance is evaluated using metrics such as precision,recall,mean Average Precision(mAP),and speed.Common datasets include PASCAL VOC,COCO,etc.,and its applications cover areas like autonomous driving,security surveillance,and medical imaging.In the future,object detection is expected to develop in directions such as 3D detection,weakly supervised learning,and cross-modal detection.
+
+%引言 第三段  计数问题是估计静态图像或视频帧中物体数量的问题。它出现在许多现实世界的应用中，包括显微图像中的细胞计数、监控系统中的人群监测、执行野生动物普查或计算森林航拍图像中树木的数量、以及铝型材加工厂的铝棒数量。
+~\textbf{Object counting} problem refers to the task of estimating the number of objects in a static image or video frame. It arises in many real-world applications,including cell counting in microscopic images,crowd monitoring in surveillance systems,conducting wildlife censuses,counting the number of trees in aerial forest images,and tallying the number of aluminum bars in aluminum profile processing plants~\cite{Lempitsky2010-ot}.
+
+%引言 第四段  目标识别和物体计数是计算机视觉中的两个重要任务，它们既有区别又有联系。目标识别旨在识别图像中物体的类别并定位其位置，输出包括类别标签和边界框，常用于自动驾驶、安防监控等场景，技术实现相对复杂；而物体计数则专注于统计图像中某一类物体的数量，输出为计数结果，适用于细胞计数、人群统计等场景，可通过简单方法实现，但在高精度需求下难度也不低。两者的联系在于：物体计数可以基于目标识别的结果实现，而目标识别也可借助计数方法优化效率；同时，它们都依赖大量标注数据进行训练，并且可以在深度学习模型的基础上相互借鉴。
+~\textbf{Object detection and object counting} are two important tasks in computer vision, which have distinctions and connections. Object detection aims to identify the categories of objects in an image and locate their positions, with output including category labels and bounding boxes. It is commonly used in scenarios such as autonomous driving and security surveillance, and its technical implementation is relatively complex.In contrast, object counting focuses on tallying the number of a specific type of object in an image,with the output being the count result. It is applicable to scenarios such as cell counting and crowd statistics and can be achieved through relatively simple methods, although it is also challenging when high precision is required. The connection between the two lies in the fact that object counting can be realized based on the results of object detection,while object detection can also optimize its efficiency by leveraging counting methods.Moreover,both tasks rely on large amounts of annotated data for training and can learn from each other on the basis of deep learning models.
+
+% 引言 第五段  Faster-RCNN 是一篇桥梁性的文献。首先被引量比较大，高达38,945次（2025.3.16日）。既有34,800篇目标检测方面的文献，也有11,300 篇物体计数方面的文献。Faster R-CNN 是一种高效的目标检测框架，通过引入区域提议网络（RPN）和共享卷积特征，实现了快速生成候选区域和精确的目标定位与分类。它采用端到端的训练方式，结合多任务损失函数优化分类和定位性能，在 PASCAL VOC 等数据集上达到了接近实时的检测速度和 73.2%的高 mAP。Faster R-CNN 广泛应用于自动驾驶、视频监控等领域，是目标检测领域的重要里程碑。
+\textbf{Faster-RCNN}~\cite{Ren2017-ou} is a seminal paper that serves as a bridge in the field.As of March 16,2025, it has been cited 38,945 times. Among these citations,there are 34,800 papers related to object detection and 11,300 papers related to object counting. Faster R-CNN is an efficient object detection framework that achieves rapid region proposal and accurate object localization and classification by introducing a Region Proposal Network(RPN)and sharing convolutional features.It employs end-to-end training and optimizes classification and localization performance using a multi-task loss function.On datasets such as PASCAL VOC,it achieves near real-time detection speed and a high mAP of 73.2 percents. Widely applied in fields like autonomous driving and video surveillance,Faster R-CNN is a significant milestone in the field of object detection.
+
+% 引言 第六段  SATCount: A scale-aware transformer-based class-agnostic counting framework 本文研究了类别无关的计数问题，目标是在不考虑对象类别的情况下对对象进行计数，并且仅依赖于有限数量的示例对象。现有方法通常从查询图像和示例图像中提取视觉特征，通过卷积操作计算它们之间的相似性，并最终利用这些信息估计对象数量。然而，这些方法常常忽略了示例对象的尺度信息，导致对具有多尺度特征的对象计数精度较低。此外，卷积操作是一种局部线性匹配过程，可能会导致语义信息的丢失，从而限制计数算法的性能。为了解决这些问题，我们设计了一个新的基于 Transformer 的尺度感知特征融合模块，该模块整合了示例对象的视觉和尺度信息，并通过交叉注意力建模样本与查询之间的相似性。最后，我们提出了一个基于特征提取主干网络、特征融合模块和密度图回归头的对象计数算法，称为 SATCount。我们在 FSC-147 和 CARPK 数据集上的实验表明，我们的模型优于现有的最先进方法。
+\textbf{SATCount}~\cite{Wang2024-lz} proposes a scale-aware Transformer-based class-agnostic counting framework, designed to address the problem of class-agnostic counting. This paper investigates the problem of class-agnostic counting,which aims to count objects without considering their categories and relies solely on a limited number of example objects.Existing methods typically extract visual features from query and example images,compute their similarity through convolution operations,and ultimately use this information to estimate object counts.However,these approaches often overlook the scale information of the example objects,leading to lower counting accuracy for objects with multi-scale characteristics.Moreover,convolution operations,being local linear matching processes,may result in the loss of semantic information,thereby limiting the performance of counting algorithms.To address these issues,we have designed a new Transformer-based scale-aware feature fusion module that integrates the visual and scale information of example objects and models the similarity between samples and queries using cross-attention.Finally,we propose an object counting algorithm based on a feature extraction backbone,a feature fusion module,and a density map regression head,called SATCount.Our experiments on the FSC-147 and CARPK datasets demonstrate that our model outperforms existing state-of-the-art methods.
+
+%第二部分 发展历史
+%发展历史 第一段 路线图
+
+%发展历史 第二段 路线图
+
+
+
+
+\bibliographystyle{unsrt}
+\bibliography{ref} 
+
+
+\end{document}
+
+
