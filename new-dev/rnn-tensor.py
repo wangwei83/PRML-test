@@ -54,9 +54,28 @@ print(f'Test Loss: {test_loss}')
 predictions = model.predict(X_test)
 
 # 绘制结果
+# plt.figure(figsize=(12, 6))
+# plt.plot(Y_test, label='True Values')
+# plt.plot(predictions, label='Predictions')
+# plt.legend()
+# plt.title('RNN Predictions vs True Values')
+# plt.show()
+
+# 绘制结果
 plt.figure(figsize=(12, 6))
-plt.plot(Y_test, label='True Values')
-plt.plot(predictions, label='Predictions')
+
+# 子图 1: True Values
+plt.subplot(1, 2, 1)  # 1行2列的第1个
+plt.plot(Y_test, label='True Values', color='blue')
 plt.legend()
-plt.title('RNN Predictions vs True Values')
+plt.title('True Values')
+
+# 子图 2: Predictions
+plt.subplot(1, 2, 2)  # 1行2列的第2个
+plt.plot(predictions, label='Predictions', color='orange')
+plt.legend()
+plt.title('Predictions')
+
+plt.tight_layout()  # 自动调整子图参数，使之填充整个图像区域
 plt.show()
+
